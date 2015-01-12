@@ -7,6 +7,7 @@ Run shell commands on your machine by hitting a url.
     git clone https://github.com/lyoshenka/run-it.git
     cd run-it
     composer install
+    ./gencert.sh      # generate self-signed SSL key & cert
 
 ## Configuration
 
@@ -20,7 +21,7 @@ Run shell commands on your machine by hitting a url.
 
 ### Authentication
 
-You must use one of your auth keys to access the API. The key may be sent using the `Authorization` header or the `auth_token` GET parameter.
+You must use one of your auth keys to access the API. The key may be sent using the `Authorization` HTTP header or the `auth_token` GET parameter.
 
 ### Format
 
