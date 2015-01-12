@@ -26,7 +26,7 @@ $app['commands'] = [
 
 
 $app->get('/', function () {
-  return 'run_it';
+  return '<html><head></head><body><a href="https://github.com/lyoshenka/run-it">run_it</a></body></html>';
 });
 
 $app->get('/{commandName}', function($commandName) use ($app) {
