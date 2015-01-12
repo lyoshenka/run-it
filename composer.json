@@ -1,0 +1,12 @@
+{
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/topscore/shellwrap"
+    }
+  ],
+  "require": {
+    "silex/silex": "~1.2",
+    "topscore/shellwrap": "master@dev"
+  }
+}
