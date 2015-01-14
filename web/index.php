@@ -1,5 +1,11 @@
 <?php
 
+if (!is_dir(__DIR__.'/../vendor'))
+{
+  echo "Don't forget to run 'composer install'.";
+  die;
+}
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 use \Symfony\Component\HttpFoundation\Request;
@@ -21,7 +27,8 @@ $app['authKeys'] = [
 
 // Commands that can be run.
 $app['commands'] = [
-  'hello' => 'echo -n "Hello world!"'
+  'hello' => 'echo -n "Hello world!"',
+  'ip' => 'curl ipv4.icanhazip.com'
 ];
 
 
@@ -76,6 +83,10 @@ $app->get('/{commandName}', function($commandName) use ($app) {
       ], JSON_PRETTY_PRINT));
       $response->headers->set('Content-Type', 'application/json');
       $response->headers->set('Access-Control-Allow-Origin', '*');
+      if ($app['request']->isSecure())
+      {
+        $response->headers->set('Strict-Transport-Security', 'max-age=31536000'); // be careful with includeSubdomains
+      }
       return $response;
 
     case 'pre':

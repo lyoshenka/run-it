@@ -1,1 +1,4 @@
-vendor
+vendor/
+composer.phar
+ssl-cert.pem
+ssl-key.pem
