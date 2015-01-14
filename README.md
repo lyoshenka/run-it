@@ -7,7 +7,12 @@ Run shell commands on your machine by hitting a url.
     git clone https://github.com/lyoshenka/run-it.git
     cd run-it
     composer install
-    ./gencert.sh      # generate self-signed SSL key & cert
+
+    ./gencert.sh   # generate self-signed SSL key & cert
+    cp nginx-sample.conf /etc/nginx/sites-available/run-it.conf
+    sudo ln -s ../sites-available/run-it.conf /etc/nginx/sites-enabled/run-it.conf
+    sudo vi /etc/nginx/sites-enabled/run-it.conf   # replace all values THAT ARE IN CAPS
+    nginx -s reload
 
 ## Configuration
 
